@@ -13,7 +13,7 @@ def heuristicFunc(goal, curr):
 
     dx = abs(x - xcurr)
     dy = abs(y - ycurr)
-    return 1 * (dx + dy) # manhattan distance
+    return 0.66 * (dx + dy) # scaled manhattan distance
 
     #return sqrt((x - xcurr) ** 2 + (y - ycurr) ** 2) # euclidian distance
 
@@ -53,7 +53,7 @@ def aStar(bd, goal):
                 frontier[index].setCost(cost)
                 frontier[index].setParent(successor.getParent())
             for x in closed:
-                if x == successor.getCor() and closed[x] < cost:
+                if x == successor.getCor() and closed[x] > cost:
                     newNode = node(x, path, closed[x])
                     heapq.heappush(frontier, newNode)
 
@@ -99,7 +99,7 @@ def ucs(bd, goal):
 
     return None
 
-input = "input_matrix2.txt"
+input = "input_matrix.txt"
 
 brd = board(input)
 
