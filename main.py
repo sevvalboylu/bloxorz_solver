@@ -99,9 +99,9 @@ def ucs(bd, goal):
 
     return None
 
-input = "input_matrix.txt"
+input_m = "input_matrix.txt"
 
-brd = board(input)
+brd = board(input_m)
 
 brd.setBoard()
 
